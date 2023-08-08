@@ -33,16 +33,16 @@ export const createResidency = asyncHandler(async (req, res) => {
       },
     });
 
-    res.status(200).send({
+    return res.status(200).send({
       message: "Residency created successfully",
       residency: residency,
     });
-  } catch (error) {
+  } catch (err) {
     if (err.code === "P2002") {
-      throw new Error("A residency with address already there");
+      throw new err("A residency with address already there");
     }
 
-    throw new Error(err.message);
+    throw new err(err.message);
   }
 });
 
@@ -54,7 +54,7 @@ export const getAllResidencies = asyncHandler(async (req, res) => {
     },
   });
 
-  res.status(200).send(residencies);
+  return res.status(200).send(residencies);
 });
 
 // function to get a specific document/residency
@@ -68,8 +68,8 @@ export const getResidency = asyncHandler(async (req, res) => {
       },
     });
 
-    res.status(200).send(residency);
-  } catch (error) {
-    throw new Error(err.message);
+    return res.status(200).send(residency);
+  } catch (err) {
+    throw new err(err.message);
   }
 });
