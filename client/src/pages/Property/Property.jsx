@@ -6,6 +6,7 @@ import { getProperty } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
 import { AiFillHeart } from "react-icons/ai";
 
+import Map from "../../components/Map/Map";
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
@@ -104,7 +105,13 @@ const Property = () => {
           </div>
 
           {/* right */}
-          <div className="right">right side</div>
+          <div className="right">
+            <Map
+              address={data?.address}
+              city={data?.city}
+              country={data?.country}
+            />
+          </div>
         </div>
       </div>
     </div>
