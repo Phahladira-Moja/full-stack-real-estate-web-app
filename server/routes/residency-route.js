@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
+router.get("/getAllResidencies", getAllResidencies);
 router.get("/:id", getResidency);
 router.post("/create", createResidency);
-router.get("/getAllResidencies", getAllResidencies);
 
 export { router as residencyRoute };

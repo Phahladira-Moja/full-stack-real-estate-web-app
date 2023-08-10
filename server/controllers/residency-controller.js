@@ -37,12 +37,12 @@ export const createResidency = asyncHandler(async (req, res) => {
       message: "Residency created successfully",
       residency: residency,
     });
-  } catch (err) {
-    if (err.code === "P2002") {
-      throw new err("A residency with address already there");
+  } catch (error) {
+    if (error.code === "P2002") {
+      throw new Error("A residency with address already there");
     }
 
-    throw new err(err.message);
+    throw new Error(error.message);
   }
 });
 
@@ -69,7 +69,7 @@ export const getResidency = asyncHandler(async (req, res) => {
     });
 
     return res.status(200).send(residency);
-  } catch (err) {
-    throw new err(err.message);
+  } catch (error) {
+    throw new Error(error.message);
   }
 });
