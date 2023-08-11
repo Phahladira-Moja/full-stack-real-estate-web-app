@@ -5,11 +5,12 @@ import {
   getAllResidencies,
   getResidency,
 } from "../controllers/residency-controller.js";
+import jwtCheck from "../config/auth0Config.js";
 
 const router = express.Router();
 
 router.get("/getAllResidencies", getAllResidencies);
 router.get("/:id", getResidency);
-router.post("/create", createResidency);
+router.post("/create", jwtCheck, createResidency);
 
 export { router as residencyRoute };
