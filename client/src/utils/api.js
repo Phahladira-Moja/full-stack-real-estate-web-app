@@ -115,3 +115,47 @@ export const addToFavorite = async (id, email, token) => {
     throw error;
   }
 };
+
+export const getAllFavorites = async (email, token) => {
+  if (!token) return;
+
+  try {
+    const res = await api.post(
+      `/user/getAllFavorites`,
+      {
+        email,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data["favResidenciesID"];
+  } catch (error) {
+    toast.error("Something went wrong while fetching favorite");
+    throw error;
+  }
+};
+
+export const getAllBookings = async (email, token) => {
+  if (!token) return;
+
+  try {
+    const res = await api.post(
+      `/user/getAllBookings`,
+      {
+        email,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data["bookedVisits"];
+  } catch (error) {
+    toast.error("Something went wrong while fetching bookings");
+    throw error;
+  }
+};
