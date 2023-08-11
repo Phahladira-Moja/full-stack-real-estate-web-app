@@ -22,7 +22,7 @@ export const createUser = asyncHandler(async (req, res) => {
 
 // function to book a visit to a residency
 export const bookVisit = asyncHandler(async (req, res) => {
-  const { email, data } = req.body;
+  const { email, date } = req.body;
   const { id } = req.params;
 
   try {
@@ -40,7 +40,7 @@ export const bookVisit = asyncHandler(async (req, res) => {
     await prisma.user.update({
       where: { email: email },
       data: {
-        bookedVisits: { push: { id, data } },
+        bookedVisits: { push: { id, date } },
       },
     });
 
