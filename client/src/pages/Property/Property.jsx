@@ -4,7 +4,6 @@ import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import { getProperty, removeBooking } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
-import { AiFillHeart } from "react-icons/ai";
 
 import Map from "../../components/Map/Map";
 import { FaShower } from "react-icons/fa";
@@ -17,6 +16,7 @@ import UserDetailContext from "../../context/UserDetailContext";
 import { Button } from "@mantine/core";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
+import Heart from "../../components/Heart/Heart";
 
 const Property = () => {
   const { pathname } = useLocation();
@@ -77,7 +77,7 @@ const Property = () => {
       <div className="flexColStart paddings innerWidth property-container">
         {/* like button */}
         <div className="like">
-          <AiFillHeart size={24} color="white" />
+          <Heart id={id} />
         </div>
 
         {/* image */}
