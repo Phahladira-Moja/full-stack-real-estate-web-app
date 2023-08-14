@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import "./Properties.css";
+import React, { useContext, useState } from "react";
+import "../Properties/Properties";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import useProperties from "../../hooks/useProperties";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import { PuffLoader } from "react-spinners";
+import UserDetailContext from "../../context/UserDetailContext";
 
-const Properties = () => {
+const Bookings = () => {
   const [filter, setFilter] = useState("");
   const { data, isError, isLoading } = useProperties();
+  const {
+    userDetails: { bookings },
+  } = useContext(UserDetailContext);
 
   if (isError) {
     return (
@@ -38,6 +42,9 @@ const Properties = () => {
 
         <div className="paddings flexCenter properties">
           {data
+            .filter((property) =>
+              bookings?.map((booking) => booking.id).includes(property.id)
+            )
             .filter(
               (property) =>
                 property.title.toLowerCase().includes(filter.toLowerCase()) ||
@@ -53,4 +60,4 @@ const Properties = () => {
   );
 };
 
-export default Properties;
+export default Bookings;
