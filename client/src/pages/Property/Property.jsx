@@ -124,7 +124,9 @@ const Property = () => {
               <MdLocationPin size={25} />
               <span className="secondaryText">
                 {data?.address}
+                {", "}
                 {data?.city}
+                {", "}
                 {data?.country}
               </span>
             </div>

@@ -52,6 +52,7 @@ const Facilities = ({
     userDetails: { token },
   } = useContext(UserDetailContext);
   const { refetch: refetchProperties } = useProperties();
+
   const { mutate, isLoading } = useMutation({
     mutationFn: () =>
       createResidency(
