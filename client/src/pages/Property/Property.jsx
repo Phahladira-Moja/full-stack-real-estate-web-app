@@ -111,7 +111,7 @@ const Property = () => {
               {/* rooms  */}
               <div className="flexStart facility">
                 <MdMeetingRoom size={20} color="#1F3E72" />
-                <span>{data?.facilities?.parkings} Room/s</span>
+                <span>{data?.facilities?.bedrooms} Room/s</span>
               </div>
             </div>
 

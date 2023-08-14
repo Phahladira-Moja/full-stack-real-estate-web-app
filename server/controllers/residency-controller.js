@@ -6,11 +6,11 @@ export const createResidency = asyncHandler(async (req, res) => {
     title,
     description,
     price,
-    address,
     country,
     city,
-    facilities,
+    address,
     image,
+    facilities,
     userEmail,
   } = req.body.data;
 
@@ -20,11 +20,11 @@ export const createResidency = asyncHandler(async (req, res) => {
         title,
         description,
         price,
-        address,
         country,
         city,
-        facilities,
+        address,
         image,
+        facilities,
         owner: {
           connect: {
             email: userEmail,
