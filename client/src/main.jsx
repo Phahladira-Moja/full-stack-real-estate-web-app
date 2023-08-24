@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain={`${import.meta.env.VITE_AUTH0_DOMAIN}`}
       clientId={`${import.meta.env.VITE_AUTH0_CLIENTID}`}
       authorizationParams={{
-        redirect_uri: "http://127.0.0.1:5173",
+        redirect_uri: "https://full-stack-real-estate-web-app-ten.vercel.app",
       }}
       audience="http://127.0.0.1:8000"
       scope="openid profile email"
